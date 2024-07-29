@@ -7,14 +7,15 @@ const filePath = "recipes.json";
 
 // GET ALL RECIPES
 export async function getRecipes() {
-        try {
-            const data = await fs.readFile(filePath, 'utf-8');
-            const jsonData = JSON.parse(data);
-            return jsonData;
-        } catch (error) {
-            console.error('Error reading file:', error);
-        }
+    try {
+        const data = await fs.readFile(filePath, 'utf-8');
+        const jsonData = JSON.parse(data);
+        return jsonData;
+    } catch (error) {
+        console.error('Error reading file:', error);
     }
+}
+
 
 
 // GET A RECIPE BY ID

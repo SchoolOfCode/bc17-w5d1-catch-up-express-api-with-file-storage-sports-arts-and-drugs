@@ -14,11 +14,10 @@ const PORT = 3000;
 app.use(express.static("public"));
 app.use(express.json());
 
-
-
-app.get("/recipes", (req, res) => {
-  getRecipes();
-})
+app.get('/recipes', async (req, res) => {
+      const recipes = await getRecipes();
+      res.json(recipes);
+});
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
