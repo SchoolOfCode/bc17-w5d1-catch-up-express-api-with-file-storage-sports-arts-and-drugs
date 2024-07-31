@@ -17,9 +17,19 @@ export async function getRecipes() {
 }
 
 
-
 // GET A RECIPE BY ID
-export async function getRecipeByID(id) {}
+export async function getRecipeByID(id) {
+    try {
+        const data = await fs.readFile(filePath, 'utf-8');
+        const jsonData = JSON.parse(data);
+        const recipe = jsonData.find(recipe => recipe.id === id);
+        return recipe;
+    } catch (error) {
+        console.error('Error reading file:', error);
+        return null;
+    }
+}
+
 
 // CREATE A RECIPE
 export async function createRecipe(newRecipe) {}
